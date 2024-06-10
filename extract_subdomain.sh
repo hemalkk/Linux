@@ -13,7 +13,7 @@ OUTPUT_FILE="subdomains.txt"
 wget -q -O "$TEMP_FILE" "$URL"
 
 # Extract subdomains and save to the output file
-grep -Eo '(https?://)?([a-zA-Z0-9_\-]+\.)*megacorpone\.com' "$TEMP_FILE" |
+grep -Eo '(https?://)?([a-zA-Z0-9_\-]+\.)*(Domain name)\.com' "$TEMP_FILE" |
     sed -E 's|https?://||' | 
     awk -F/ '{print $1}' | 
     sort -u > "$OUTPUT_FILE"
